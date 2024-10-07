@@ -1,8 +1,8 @@
-package models
+package internal.models
 
 import (
 	"github.com/jackpal/bencode-go"
-	"models/bencodeInfo"
+	"BitTorrent/internal/models/bencodeInfo"
 )
 
 type bencodeTorrent struct {

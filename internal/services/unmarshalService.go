@@ -1,7 +1,7 @@
-package services
+package internal.services
 
 import (	
-	"internal/models"
+	"BitTorrent/internal/internal/models"
 )
 
 func Unmarshal(peerBin []byte)([]peer, error)

@@ -1,4 +1,6 @@
-package models
+package internal.models
+
+const port uint16 = 6881
 
 type torrentFile struct {
 	Announce string

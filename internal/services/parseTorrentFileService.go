@@ -1,7 +1,7 @@
-package services
+package internal.services
 
 import (
-	"internal/models"
+	"BitTorrent/internal/models"
 	"github.com/jackpal/bencode-go"
 )
 

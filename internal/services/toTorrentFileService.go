@@ -1,9 +1,10 @@
-package services
+package internal.services
 
 import(
-	"internal/models"
+	"BitTorrent/internal/internal/models"
 )
 
-func (bto bencodeTorrent) ToTorrentFile() (TorrentFile, error){
+func (bto *bencodeTorrent) ToTorrentFile() (TorrentFile, error){
+	infoHash, err := bto.infoHash.hash()
 	
 }

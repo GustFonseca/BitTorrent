@@ -1,8 +1,8 @@
-package services
+package internal.services
 
 import {
 	"os"
-	"internal/models"
+	"BitTorrent/internal/models"
 }
 
 
@@ -22,7 +22,41 @@ func (t *torrentFile) DownloadToFile(path string) error{
 	}
 
 	torrent := torrent{
-		peers: peers,
-		per
+		Peers 		: peers,
+		PeerId		: peerID,
+		InfoHash	: t.InfoHash,
+		PieceHashes	: t.PieceHashes,
+		PieceLength	: t.PieceLength,
+		Length 		: t.Length,
+		Name 		: t.Name
 	}
+
+	buf, err := torrent.Download()
+
+	if err != nil{
+		return err
+	}
+
+	outFile, err := os.Create(path)
+
+	if err != nil{
+		return err
+	}
+
+	_, err = outFile.Write(buf)
+	
+	if err != nil{
+		return err
+	}
+
+	defer outFile.Close()
+
+	_, err = outFile.Write(buf)
+	
+	if err != nil{
+		return err
+	}	
+
+	return nil
+
 }
